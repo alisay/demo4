@@ -1,0 +1,43 @@
+body {
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    color: white;
+    position: absolute;
+    overflow: hidden;
+}
+
+#container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: url(imgs/1.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+#text {
+    position: absolute;
+    height: 100%;
+    width: 100vw;
+    line-height: 100vh;
+    text-align: center;
+    mix-blend-mode: exclusion;
+    font-size: 5vw;
+}
+
+#shuffle {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 10px;
+}
+
+#theWord {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 10px;
+}
