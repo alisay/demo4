@@ -35,9 +35,16 @@ body {
     margin: 10px;
 }
 
+#get-pics {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 10px;
+}
+
 #theWord {
     position: absolute;
-    bottom: 0;
-    right: 0;
+    bottom: 5;
+    left: 0;
     margin: 10px;
 }

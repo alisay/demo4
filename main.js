@@ -1,3 +1,5 @@
+var images; 
+
 const parseImages=(obj)=>{
     return obj.primaryImage;
 }
@@ -23,19 +25,37 @@ const search=(searchTerm)=>{
     .then(data=>compileImages(data))
 }
 
-var texts = ["fruits ripen slowly", "<3", "...", "hahaha"]
+const texts =()=>{
+    return fetch(`https://api.kanye.rest/`)
+    .then((response)=>response.json())
+    .then(data=>data.quote)
+}
 
-const shuffle= (event)=>{
+const pics= async (event)=>{
     event.preventDefault()
-    console.log("shuffles")
-    console.log(document.getElementById('theWord').value)
+    const word = document.getElementById('theWord').value;
+    images = await search(word)
+    console.log(`got pics ${images}`)
     //get the random result
-    // var imageResult = "url(" + images[Math.floor(Math.random() * images.length)] + ")"
-    // var textResult = texts[Math.floor(Math.random() * texts.length)]
+    
     }
 
-const button = document.querySelector("#shuffle")
-button.addEventListener("click", shuffle)
+const shuffle = async ()=>{
+    console.log("shuffling")
+    var imageResult = "url(" + images[Math.floor(Math.random() * images.length)] + ")"
+    var textResult = await texts()
+    document.getElementById("container").style.backgroundImage = imageResult
+    console.log(textResult)
+    document.getElementById("text").innerHTML= textResult
+}
+
+
+
+const shuffleButton = document.querySelector("#shuffle")
+const picButton = document.querySelector("#get-pics")
+shuffleButton.addEventListener("click", shuffle)
+picButton.addEventListener("click", pics)
+
 
 
     // step 1: set up arrays of oppurtunities 
@@ -46,3 +66,4 @@ button.addEventListener("click", shuffle)
     // input text
 
     // compileImages("dogs")
+
